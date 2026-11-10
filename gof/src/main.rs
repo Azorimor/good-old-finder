@@ -2,5 +2,8 @@ mod core;
 mod cli;
 
 fn main() {
-    println!("Hello, world!");
+    if let Err(err) = cli::run() {
+        eprintln!("Fehler: {err}");
+        std::process::exit(1);
+    }
 }
